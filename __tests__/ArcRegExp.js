@@ -145,6 +145,6 @@ describe('ArcRegExp tests',()=>{
         expect(result.matches).toEqual([
             ['/:key','key'],
             ['/:val','val']
-        ]); 
+        ]);
     });
 });

@@ -31,12 +31,12 @@ const params = {
 };
 
 //In the case of replaceCallback we will be called with a full match array on every isolated match
-const [path,matches] = ARX.replaceCallback('/pets/:key/:val',([match,group])=>{
+const result = ARX.replaceCallback('/pets/:key/:val',([match,group])=>{
     return `/${params[group]}`;
 });
 
-console.log(path); //Should return /pets/cats/2
-console.log(matches); //Should be [['/:key','key'],['/:val','val']]
+console.log(result.replaced); //Should return /pets/cats/2
+console.log(result.matches); //Should be [['/:key','key'],['/:val','val']]
 ```
 
 ## API
