@@ -1,0 +1,32 @@
+{
+  "name": "arc-reg-exp",
+  "version": "1.0.0",
+  "description": "Convenience subclass to the native RegExp object",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anyuzer/arc-reg-exp.git"
+  },
+  "keywords": [
+    "RegExp",
+    "regular",
+    "expression",
+    "arc"
+  ],
+  "author": "Ian Reid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anyuzer/arc-reg-exp/issues"
+  },
+  "homepage": "https://github.com/anyuzer/arc-reg-exp#readme",
+  "devDependencies": {
+    "jest": "^20.0.0"
+  },
+  "dependencies": {
+    "arc-is": "^1.0.5"
+  }
+}
