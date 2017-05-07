@@ -43,9 +43,9 @@ describe('ArcRegExp tests',()=>{
 
     it('should accept a string, isolate all matches, and run a replace on each isolated match',()=>{
         const rx = new ArcRegExp(/h([^o]{3})o/);
-        const [newString,matches] = rx.matchAndReplace('hello, hallo, hacko, pello, mello, mallo, sallo, heedo','hello');
-        expect(newString).toBe('hello, hello, hello, pello, mello, mallo, sallo, hello');
-        expect(matches).toEqual([
+        const result = rx.matchAndReplace('hello, hallo, hacko, pello, mello, mallo, sallo, heedo','hello');
+        expect(result.replaced).toBe('hello, hello, hello, pello, mello, mallo, sallo, hello');
+        expect(result.matches).toEqual([
             ['hello','ell'],
             ['hallo','all'],
             ['hacko','ack'],
@@ -55,16 +55,16 @@ describe('ArcRegExp tests',()=>{
 
     it('should accept a string, and if no matches are found, return the same string and an empty array of matches',()=>{
         const rx = new ArcRegExp(/h([^o]{3})o/);
-        const [newString,matches] = rx.matchAndReplace('why','hello');
-        expect(newString).toBe('why');
-        expect(matches).toEqual([]);
+        const result = rx.matchAndReplace('why','hello');
+        expect(result.replaced).toBe('why');
+        expect(result.matches).toEqual([]);
     });
 
     it('should accept a string, and if no replace value is passed in, should remove all matches instead',()=>{
         const rx = new ArcRegExp(/h([^o]{3})o/);
-        const [newString,matches] = rx.matchAndReplace('hello, hallo, hacko, pello, mello, mallo, sallo, heedo');
-        expect(newString).toBe(', , , pello, mello, mallo, sallo, ');
-        expect(matches).toEqual([
+        const result = rx.matchAndReplace('hello, hallo, hacko, pello, mello, mallo, sallo, heedo');
+        expect(result.replaced).toBe(', , , pello, mello, mallo, sallo, ');
+        expect(result.matches).toEqual([
             ['hello','ell'],
             ['hallo','all'],
             ['hacko','ack'],
@@ -74,9 +74,9 @@ describe('ArcRegExp tests',()=>{
 
     it('should accept a string, and if a limit is set, only perform operation until limit is met',()=>{
         const rx = new ArcRegExp(/h([^o]{3})o/);
-        const [newString,matches] = rx.matchAndReplace('hello, hallo, hacko, pello, mello, mallo, sallo, heedo', 'hello', 2);
-        expect(newString).toBe('hello, hello, hacko, pello, mello, mallo, sallo, heedo');
-        expect(matches).toEqual([
+        const result = rx.matchAndReplace('hello, hallo, hacko, pello, mello, mallo, sallo, heedo', 'hello', 2);
+        expect(result.replaced).toBe('hello, hello, hacko, pello, mello, mallo, sallo, heedo');
+        expect(result.matches).toEqual([
             ['hello','ell'],
             ['hallo','all']
         ]);
@@ -89,19 +89,19 @@ describe('ArcRegExp tests',()=>{
             }
             return 'ho';
         };
-        let newString,matches;
+        let result = {};
         const rx = new ArcRegExp(/h([^o]{3})o/);
-        [newString,matches] = rx.replaceCallback('hello, hallo, hacko, mello, and other things',callback);
-        expect(newString).toBe('hello, hello, ho, mello, and other things');
-        expect(matches).toEqual([
+        result = rx.replaceCallback('hello, hallo, hacko, mello, and other things',callback);
+        expect(result.replaced).toBe('hello, hello, ho, mello, and other things');
+        expect(result.matches).toEqual([
             ['hello','ell'],
             ['hallo','all'],
             ['hacko','ack']
         ]);
 
-        [newString,matches] = rx.replaceCallback('hello, hallo',callback);
-        expect(newString).toBe('hello, hello');
-        expect(matches).toEqual([
+        result = rx.replaceCallback('hello, hallo',callback);
+        expect(result.replaced).toBe('hello, hello');
+        expect(result.matches).toEqual([
             ['hello','ell'],
             ['hallo','all']
         ]);
@@ -137,12 +137,12 @@ describe('ArcRegExp tests',()=>{
             val:'2'
         };
 
-        const [path,matches] = rx.replaceCallback('/pets/:key/:val',([match,group])=>{
+        const result = rx.replaceCallback('/pets/:key/:val',([match,group])=>{
             return `/${params[group]}`;
         });
 
-        expect(path).toBe('/pets/cats/2');
-        expect(matches).toEqual([
+        expect(result.replaced).toBe('/pets/cats/2');
+        expect(result.matches).toEqual([
             ['/:key','key'],
             ['/:val','val']
         ]);

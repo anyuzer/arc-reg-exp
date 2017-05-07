@@ -57,7 +57,7 @@ class ArcRegExp extends RegExp {
         if(reduceString){
             newString = newString+reduceString;
         }
-        return [newString,matches];
+        return {replaced:newString,matches};
     }
 
     replaceCallback(_string,_callback){
@@ -91,7 +91,7 @@ class ArcRegExp extends RegExp {
         if(reduceString){
             newString = newString+reduceString;
         }
-        return [newString,matches];
+        return {replaced:newString,matches};
     }
 
     toString(){

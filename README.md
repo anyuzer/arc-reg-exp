@@ -52,13 +52,13 @@ Accept a search string, as well as 2 optional args, replaceString which will def
 
 Search for matches, replace with the replaceString for as many times until limit is met, or until no more matches are found in the case of no limit being set.
 
-Returns an array of `[newString,matches]`
+Returns an object of `{replaced, matches}`
 
 ### .replaceCallback(searchString:String,callback:Function)
 
 Accept a search string, as well as a callback function. On every match, call the callback passing in the full match array and replacing the found value with the return value of the callback.
 
-Returns an array of `[newString,matches]`
+Returns an object of `{replaced, matches}`
 
 ## Testing
 ```
