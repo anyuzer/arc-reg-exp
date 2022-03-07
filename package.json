@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/anyuzer/arc-reg-exp#readme",
   "devDependencies": {
-    "jest": "^20.0.0"
+    "jest": "^27.5.1"
   },
   "dependencies": {
-    "arc-is": "^1.0.5"
+    "arc-is": "^1.0.8"
   }
 }

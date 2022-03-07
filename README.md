@@ -1,4 +1,4 @@
-# arc-reg-exp [![Build Status](https://travis-ci.org/anyuzer/arc-reg-exp.svg?branch=master)](https://travis-ci.org/anyuzer/arc-reg-exp)
+# arc-reg-exp
 A RegExp convenience subclass for javascript (ES6)
 
 ## Install
