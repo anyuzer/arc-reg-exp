@@ -1,6 +1,6 @@
 {
   "name": "arc-reg-exp",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Convenience subclass to the native RegExp object",
   "main": "index.js",
   "type": "module",
