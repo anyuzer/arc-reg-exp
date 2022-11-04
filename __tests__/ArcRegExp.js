@@ -1,5 +1,5 @@
-const is = require('arc-is');
-const ArcRegExp = require('../index');
+import is from 'arc-is';
+import ArcRegExp from "../index.js";
 
 describe('ArcRegExp tests',()=>{
    it('should evaluate to a ArgRegExp string if cast to a string, and show inheritance to RegExp if prototype chain is checked',()=>{

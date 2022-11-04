@@ -1,4 +1,4 @@
-const is = require('arc-is');
+import is from 'arc-is';
 
 class ArcRegExp extends RegExp {
     matchAll(_string){
@@ -111,4 +111,4 @@ class ArcRegExp extends RegExp {
     }
 }
 
-module.exports = ArcRegExp;
+export default ArcRegExp;

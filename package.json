@@ -3,9 +3,10 @@
   "version": "1.0.1",
   "description": "Convenience subclass to the native RegExp object",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest --coverage",
-    "test:watch": "jest --watchAll"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,10 @@
     "url": "https://github.com/anyuzer/arc-reg-exp/issues"
   },
   "homepage": "https://github.com/anyuzer/arc-reg-exp#readme",
-  "devDependencies": {
-    "jest": "^27.5.1"
-  },
   "dependencies": {
-    "arc-is": "^1.0.8"
+    "arc-is": "^2.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2"
   }
 }
